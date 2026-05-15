@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Über LockKeeper Software GmbH – unsere Mission, unser Team und unsere eingetragenen Marken.">
+  <title>Über uns – LockKeeper</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── About page styles ── */
+    .about-hero {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: #fff;
+      padding: 4rem 0 3rem;
+      text-align: center;
+    }
+    .about-hero h1 { color: #fff; }
+    .about-hero p  { color: rgba(255,255,255,0.85); max-width: 540px; margin: 0.75rem auto 0; font-size: 1.1rem; }
+
+    /* Team grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .team-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .team-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(30,58,95,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+      color: var(--color-primary);
+    }
+
+    .team-card h3 { font-size: 1rem; }
+    .team-card p  { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.2rem; }
+
+    /* Values */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .value-item {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+    }
+
+    .value-item h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .value-item p { font-size: 0.9rem; color: var(--color-text-muted); }
+
+    /* ── Trademark section ── */
+    .trademark-intro {
+      max-width: 680px;
+    }
+
+    .trademark-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .trademark-card {
+      background: var(--color-surface);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .trademark-preview {
+      background: #f0f4f8;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .trademark-body {
+      padding: 1.25rem;
+    }
+
+    .trademark-type {
+      display: inline-block;
+      background: var(--color-primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+      margin-bottom: 0.6rem;
+    }
+
+    .trademark-body h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+    .trademark-body p  { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; }
+
+    /* Nice classes table */
+    .nice-table th:first-child,
+    .nice-table td:first-child {
+      white-space: nowrap;
+    }
+
+    .badge-nice {
+      display: inline-block;
+      background: rgba(30,58,95,0.1);
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 99px;
+    }
+
+    /* Compliance box */
+    .compliance-box {
+      background: rgba(46,204,113,0.08);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin-top: 2rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .compliance-box svg { flex-shrink: 0; color: var(--color-accent); margin-top: 0.1rem; }
+    .compliance-box p   { font-size: 0.9rem; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
+  <nav class="site-nav" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="LockKeeper – Startseite">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="7" stroke="#2ECC71" stroke-width="2.5"/>
+          <circle cx="11" cy="11" r="3.5" fill="#2ECC71"/>
+          <rect x="16.5" y="10" width="9" height="2.5" rx="1.25" fill="#2ECC71"/>
+          <rect x="22" y="12.5" width="2.5" height="3" rx="1" fill="#2ECC71"/>
+          <rect x="18.5" y="12.5" width="2.5" height="2" rx="1" fill="#2ECC71"/>
+        </svg>
+        LockKeeper
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Menü öffnen">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Shop</a></li>
+        <li><a href="about.html" aria-current="page">Über uns</a></li>
+        <li><a href="license.html">Lizenz</a></li>
+        <li><a href="privacy.html">Datenschutz</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+        <li><a href="accessibility.html">Barrierefreiheit</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="about-hero" aria-labelledby="about-heading">
+      <div class="container">
+        <h1 id="about-heading">Über LockKeeper</h1>
+        <p>Wir glauben, dass Privatsphäre kein Luxus ist. Deshalb bauen wir Software, die deine Daten dort lässt, wo sie hingehören – bei dir.</p>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="section section--alt" aria-labelledby="mission-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="mission-heading">Unsere Mission</h2>
+          <p>Einfache, sichere Software ohne Wenn und Aber.</p>
+        </div>
+
+        <div class="values-grid" role="list">
+
+          <div class="value-item" role="listitem">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Privacy First
+            </h3>
+            <p>Keine Cloud, kein Tracking, keine Telemetrie. Was auf deinem Gerät passiert, bleibt auf deinem Gerät.</p>
+          </div>
+
+          <div class="value-item" role="listitem">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Open &amp; Transparent
+            </h3>
+            <p>Wir dokumentieren offen, was wir tun – und was wir nicht tun. Keine versteckten Prozesse.</p>
+          </div>
+
+          <div class="value-item" role="listitem">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Kein Abo-Zwang
+            </h3>
+            <p>Einmal kaufen, für immer nutzen. Updates sind kostenlos – weil gute Software keine Geiseln nimmt.</p>
+          </div>
+
+          <div class="value-item" role="listitem">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Cross-Platform
+            </h3>
+            <p>Windows, macOS, Linux – eine Lizenz, alle Plattformen. Weil gute Werkzeuge überall funktionieren.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Company facts -->
+    <section class="section" aria-labelledby="company-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="company-heading">Das Unternehmen</h2>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:1rem; margin-bottom:3rem;">
+          <div class="card text-center">
+            <div style="font-size:2rem;font-weight:700;color:var(--color-primary);">2023</div>
+            <p class="text-muted" style="font-size:0.9rem;">Gründungsjahr</p>
+          </div>
+          <div class="card text-center">
+            <div style="font-size:2rem;font-weight:700;color:var(--color-primary);">4</div>
+            <p class="text-muted" style="font-size:0.9rem;">Mitarbeiter</p>
+          </div>
+          <div class="card text-center">
+            <div style="font-size:2rem;font-weight:700;color:var(--color-primary);">Wien</div>
+            <p class="text-muted" style="font-size:0.9rem;">Österreich</p>
+          </div>
+          <div class="card text-center">
+            <div style="font-size:2rem;font-weight:700;color:var(--color-primary);">100%</div>
+            <p class="text-muted" style="font-size:0.9rem;">Lokal &amp; unabhängig</p>
+          </div>
+        </div>
+
+        <!-- Team -->
+        <h3 class="mb-2">Unser Team</h3>
+        <div class="team-grid">
+
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3>Anna Berger</h3>
+            <p>CEO &amp; Co-Founderin</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3>Markus Haller</h3>
+            <p>CTO &amp; Co-Founder</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3>Sara Kowalski</h3>
+            <p>Lead Developer</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3>Lukas Stern</h3>
+            <p>UX &amp; Design</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Trademarks -->
+    <section class="section section--alt" id="marken" aria-labelledby="trademark-heading">
+      <div class="container">
+        <div class="trademark-intro">
+          <h2 id="trademark-heading">Unsere Marken</h2>
+          <p class="text-muted mt-1">
+            LockKeeper verfügt über drei eingetragene Markenformen. Jede erfüllt eine andere
+            kommunikative Funktion – gemeinsam bilden sie ein konsistentes Markenimage.
+          </p>
+        </div>
+
+        <div class="trademark-grid" role="list">
+
+          <!-- 1. Wortmarke -->
+          <article class="trademark-card" role="listitem" aria-labelledby="tm1-title">
+            <div class="trademark-preview" aria-label="Vorschau der Wortmarke LockKeeper">
+              <svg viewBox="0 0 280 80" width="280" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wortmarke: LockKeeper in Großbuchstaben">
+                <text
+                  x="140" y="56"
+                  text-anchor="middle"
+                  font-family="Inter, system-ui, sans-serif"
+                  font-size="38"
+                  font-weight="700"
+                  letter-spacing="-1"
+                  fill="#1E3A5F">LockKeeper</text>
+              </svg>
+            </div>
+            <div class="trademark-body">
+              <span class="trademark-type">Wortmarke</span>
+              <h3 id="tm1-title">„LockKeeper"</h3>
+              <p>
+                Der Markenname als reines Schriftzeichen. Schützt die Bezeichnung
+                <em>LockKeeper</em> unabhängig von Schriftart, Farbe oder Gestaltung.
+                Grundlage aller anderen Markendarstellungen.
+              </p>
+            </div>
+          </article>
+
+          <!-- 2. Bildmarke -->
+          <article class="trademark-card" role="listitem" aria-labelledby="tm2-title">
+            <div class="trademark-preview" aria-label="Vorschau der Bildmarke: stilisierter Schlüssel">
+              <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bildmarke: stilisierter grüner Schlüssel mit Kreis">
+                <!-- Schlüsselring -->
+                <circle cx="44" cy="44" r="28" stroke="#1E3A5F" stroke-width="10" fill="none"/>
+                <!-- Schlüsselloch -->
+                <circle cx="44" cy="44" r="13" fill="#2ECC71"/>
+                <!-- Schlüsselschaft -->
+                <rect x="66" y="39" width="36" height="10" rx="5" fill="#1E3A5F"/>
+                <!-- Zähne -->
+                <rect x="88" y="49" width="10" height="12" rx="3" fill="#1E3A5F"/>
+                <rect x="74" y="49" width="10" height="9"  rx="3" fill="#1E3A5F"/>
+              </svg>
+            </div>
+            <div class="trademark-body">
+              <span class="trademark-type">Bildmarke</span>
+              <h3 id="tm2-title">Schlüssel-Icon</h3>
+              <p>
+                Ein stilisierter Schlüssel mit grünem Zentrum – eigenständig verwendbar,
+                ohne Schriftzug. Der ausgefüllte Kreis steht für Sicherheit und Integrität,
+                der Schaft symbolisiert den Zugang.
+              </p>
+            </div>
+          </article>
+
+          <!-- 3. Farbmarke -->
+          <article class="trademark-card" role="listitem" aria-labelledby="tm3-title">
+            <div class="trademark-preview" aria-label="Vorschau der Farbmarke: LockKeeper-Grün">
+              <div style="display:flex; flex-direction:column; align-items:center; gap:1rem;">
+                <div style="width:80px; height:80px; border-radius:50%; background:#2ECC71; box-shadow: 0 4px 20px rgba(46,204,113,0.4);"></div>
+                <code style="font-size:0.85rem; color:#1A1A2E;">#2ECC71</code>
+              </div>
+            </div>
+            <div class="trademark-body">
+              <span class="trademark-type">Farbmarke</span>
+              <h3 id="tm3-title">LockKeeper-Grün</h3>
+              <p>
+                Die Farbe <strong>#2ECC71</strong> (Pantone 354 C) ist als Farbmarke
+                eingetragen. Sie steht für Sicherheit, Freigabe und Vertrauen –
+                und hebt LockKeeper in der Kategorie Sicherheitssoftware eindeutig ab.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Nice classes -->
+        <h3 class="mt-4 mb-2" id="nice-classes">Nizza-Klassifikation</h3>
+        <p class="text-muted mb-2" style="font-size:0.9rem;">
+          Die Marken sind in folgenden Klassen des Nizzaer Abkommens eingetragen:
+        </p>
+
+        <div style="overflow-x:auto;">
+          <table class="nice-table" aria-label="Nizza-Klassifikation der LockKeeper-Marken">
+            <thead>
+              <tr>
+                <th scope="col">Klasse</th>
+                <th scope="col">Bezeichnung</th>
+                <th scope="col">Relevanz für LockKeeper</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge-nice">Klasse 9</span></td>
+                <td>Computerprogramme; Software; Datensicherheitssoftware; herunterladbare Computerprogramme</td>
+                <td>Kernprodukt ist die LockKeeper Desktop-Applikation</td>
+              </tr>
+              <tr>
+                <td><span class="badge-nice">Klasse 35</span></td>
+                <td>Einzelhandelsdienstleistungen in Bezug auf Computersoftware; Online-Einzelhandelsdienstleistungen mit herunterladbarer Software</td>
+                <td>Der Webshop vertreibt Software-Lizenzen</td>
+              </tr>
+              <tr>
+                <td><span class="badge-nice">Klasse 42</span></td>
+                <td>Design und Entwicklung von Computersoftware; Software as a Service (SaaS); IT-Sicherheitsdienstleistungen</td>
+                <td>Zukünftige Dienstleistungen rund um die Software (Support, Updates, Lizenzmanagement)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Compliance note -->
+        <div class="compliance-box" role="note" aria-label="Markenrechtliche Compliance">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <div>
+            <p>
+              <strong>Markenrechtliche Prüfung:</strong> Der Name <em>LockKeeper</em> sowie alle Markenelemente
+              wurden vor der Anmeldung über <a href="https://euipo.europa.eu/eSearch/" target="_blank" rel="noopener noreferrer">EUIPO eSearch</a>
+              und <a href="https://www.tmview.org/" target="_blank" rel="noopener noreferrer">TMview</a>
+              auf Kollisionen geprüft. Es wurden keine verwechslungsfähigen Vormarken in den Klassen 9 und 42
+              gefunden. Wortwahl, Bildwahl, Farbwahl und Formwahl wurden bewusst so gewählt,
+              dass keine Verwechslungsgefahr mit bestehenden Passwort-Manager-Marken (1Password, Bitwarden, etc.) besteht.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links" role="list" aria-label="Footer-Navigation">
+        <li><a href="index.html">Shop</a></li>
+        <li><a href="about.html">Über uns</a></li>
+        <li><a href="license.html">Lizenz</a></li>
+        <li><a href="privacy.html">Datenschutz</a></li>
+        <li><a href="contact.html">Impressum &amp; Kontakt</a></li>
+        <li><a href="media.html">Medienlizenzen</a></li>
+        <li><a href="accessibility.html">Barrierefreiheit</a></li>
+      </ul>
+      <p class="footer-copy">
+        &copy; 2025 LockKeeper Software GmbH, Wien &mdash;
+        Alle Rechte vorbehalten. &nbsp;|&nbsp;
+        Diese Website ist eine Studienarbeit (TU Wien, Daten- und Informatikrecht).
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

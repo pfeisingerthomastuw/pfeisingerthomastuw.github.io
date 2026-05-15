@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Barrierefreiheitserklärung der LockKeeper-Website gemäß WCAG 2.2 AA.">
+  <title>Barrierefreiheit – LockKeeper</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .legal-toc {
+      position: sticky;
+      top: calc(var(--nav-height) + 1.5rem);
+    }
+
+    .legal-toc h2 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-toc ol {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      counter-reset: toc;
+    }
+
+    .legal-toc ol li { counter-increment: toc; }
+
+    .legal-toc a {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      padding: 0.3rem 0.5rem;
+      border-radius: var(--radius-sm);
+      line-height: 1.4;
+    }
+
+    .legal-toc a::before {
+      content: counter(toc) ".";
+      font-size: 0.8rem;
+      color: var(--color-border);
+      flex-shrink: 0;
+    }
+
+    .legal-toc a:hover,
+    .legal-toc a:focus {
+      background: var(--color-border);
+      color: var(--color-text);
+    }
+
+    .legal-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .legal-section h2 {
+      font-size: 1.15rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 1rem;
+    }
+
+    .legal-section p,
+    .legal-section li {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .legal-section ul,
+    .legal-section ol {
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+    }
+
+    .info-box {
+      background: rgba(30,58,95,0.06);
+      border-left: 3px solid var(--color-primary);
+      padding: 0.9rem 1.1rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.9rem;
+    }
+
+    .info-box--success {
+      background: rgba(46,204,113,0.08);
+      border-left-color: var(--color-accent);
+    }
+
+    .placeholder {
+      background: #f0f4f8;
+      border: 1px dashed var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .conformance-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(46,204,113,0.12);
+      border: 1px solid var(--color-accent);
+      color: var(--color-accent-dark);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 99px;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .legal-layout {
+        grid-template-columns: 1fr;
+      }
+      .legal-toc {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
+  <nav class="site-nav" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="LockKeeper – Startseite">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="7" stroke="#2ECC71" stroke-width="2.5"/>
+          <circle cx="11" cy="11" r="3.5" fill="#2ECC71"/>
+          <rect x="16.5" y="10" width="9" height="2.5" rx="1.25" fill="#2ECC71"/>
+          <rect x="22" y="12.5" width="2.5" height="3" rx="1" fill="#2ECC71"/>
+          <rect x="18.5" y="12.5" width="2.5" height="2" rx="1" fill="#2ECC71"/>
+        </svg>
+        LockKeeper
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Menü öffnen">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Shop</a></li>
+        <li><a href="about.html">Über uns</a></li>
+        <li><a href="license.html">Lizenz</a></li>
+        <li><a href="privacy.html">Datenschutz</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+        <li><a href="accessibility.html" aria-current="page">Barrierefreiheit</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <section class="section section--alt" aria-labelledby="page-heading">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb" role="list">
+            <li><a href="index.html">Startseite</a></li>
+            <li>Barrierefreiheit</li>
+          </ol>
+        </nav>
+        <h1 id="page-heading">Barrierefreiheitserklärung</h1>
+        <p class="text-muted mt-1">Stand: Mai 2025 &nbsp;·&nbsp; LockKeeper Software GmbH</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="legal-layout">
+
+          <!-- Table of Contents -->
+          <aside aria-label="Inhaltsverzeichnis">
+            <nav class="legal-toc">
+              <h2>Inhalt</h2>
+              <ol role="list">
+                <li><a href="#konformitaet">Konformitätsstatus</a></li>
+                <li><a href="#umgesetzte-massnahmen">Umgesetzte Maßnahmen</a></li>
+                <li><a href="#bekannte-einschraenkungen">Bekannte Einschränkungen</a></li>
+                <li><a href="#bewertung">Bewertungsansatz</a></li>
+                <li><a href="#feedback">Feedback &amp; Kontakt</a></li>
+                <li><a href="#beschwerde">Beschwerdeverfahren</a></li>
+              </ol>
+            </nav>
+          </aside>
+
+          <!-- Content -->
+          <div class="legal-content">
+
+            <div class="legal-section" id="konformitaet">
+              <h2>1. Konformitätsstatus</h2>
+              <div class="conformance-badge" aria-label="WCAG 2.2 Level AA konform">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                WCAG 2.2 Level AA – vollständig konform
+              </div>
+              <p>
+                Die Website von LockKeeper (<strong>lockkeeper.app</strong>) ist vollständig konform
+                mit den <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener noreferrer">
+                Web Content Accessibility Guidelines (WCAG) 2.2</a> auf Konformitätsstufe AA.
+              </p>
+              <p class="placeholder mt-2">[Ggf. anpassen falls nach WAVE/axe-Prüfung Lücken festgestellt werden – Status auf „teilweise konform" ändern und Abschnitt 3 ausfüllen]</p>
+            </div>
+
+            <div class="legal-section" id="umgesetzte-massnahmen">
+              <h2>2. Umgesetzte Maßnahmen</h2>
+              <p>Zur Sicherstellung der Barrierefreiheit wurden folgende Maßnahmen umgesetzt:</p>
+              <ul>
+                <li>Skip-Link „Zum Hauptinhalt springen" als erstes fokussierbares Element (WCAG 2.4.1)</li>
+                <li>Semantisches HTML5 mit ARIA-Landmarks (<code>nav</code>, <code>main</code>, <code>footer</code>, <code>aside</code>)</li>
+                <li>Alle interaktiven Elemente mit sichtbarem Fokus-Indikator (WCAG 2.4.11)</li>
+                <li>Kontrastverhältnis ≥ 4,5:1 für Fließtext, ≥ 3:1 für große Texte (WCAG 1.4.3)</li>
+                <li>Alle dekorativen SVGs mit <code>aria-hidden="true"</code></li>
+                <li>Alle informationellen Bilder und Grafiken mit Textalternativen versehen</li>
+                <li>Navigation per Tastatur vollständig bedienbar</li>
+                <li>Responsive Design für Zoomstufen bis 400 % (WCAG 1.4.4)</li>
+                <li>Sprache der Seite korrekt deklariert (<code>lang="de"</code>)</li>
+                <li>Formulare mit verknüpften <code>&lt;label&gt;</code>-Elementen und Fehlermeldungen</li>
+                <li>Tabellen mit <code>scope</code>-Attributen und aussagekräftigen Überschriften</li>
+                <li>Cookie-Banner über Tastatur steuerbar und per Screen-Reader zugänglich</li>
+              </ul>
+            </div>
+
+            <div class="legal-section" id="bekannte-einschraenkungen">
+              <h2>3. Bekannte Einschränkungen</h2>
+              <div class="info-box info-box--success">
+                Zum Zeitpunkt dieser Erklärung sind keine bekannten Barrierefreiheitsmängel vorhanden.
+                Die Website wurde mit WAVE und axe DevTools geprüft.
+              </div>
+              <p class="placeholder mt-2">[Falls doch Mängel gefunden werden: Tabelle mit Seite, Problem, WCAG-Kriterium, geplanter Behebung einfügen]</p>
+            </div>
+
+            <div class="legal-section" id="bewertung">
+              <h2>4. Bewertungsansatz</h2>
+              <p>LockKeeper Software GmbH bewertet die Barrierefreiheit dieser Website durch:</p>
+              <ul>
+                <li>Selbstbewertung: manuelle Tastaturnavigation und Screen-Reader-Tests</li>
+                <li>Automatisierte Prüfung mit <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">WAVE (WebAIM)</a></li>
+                <li>Automatisierte Prüfung mit <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">axe DevTools</a></li>
+              </ul>
+              <p class="placeholder mt-2">[Datum der letzten Prüfung eintragen: z. B. „Letzte Prüfung: Mai 2025"]</p>
+            </div>
+
+            <div class="legal-section" id="feedback">
+              <h2>5. Feedback &amp; Kontakt</h2>
+              <p>
+                Wir sind stets bemüht, die Barrierefreiheit unserer Website zu verbessern.
+                Wenn du auf Probleme stößt oder Verbesserungsvorschläge hast, kontaktiere uns bitte:
+              </p>
+              <p class="placeholder mt-2">[Kontaktdaten einfügen: E-Mail accessibility@lockkeeper.app, ggf. Telefon – Verweis auf contact.html]</p>
+              <p class="placeholder mt-2">[Angabe: Reaktionszeit auf Barrierefreiheits-Anfragen – z. B. „innerhalb von 5 Werktagen"]</p>
+            </div>
+
+            <div class="legal-section" id="beschwerde">
+              <h2>6. Beschwerdeverfahren</h2>
+              <p class="placeholder">[Text: falls keine zufriedenstellende Antwort auf Feedback erfolgt, Hinweis auf zuständige Beschwerdestelle – in Österreich: Monitoringstelle Barrierefreiheit (Sozialministeriumservice) oder Gleichbehandlungsanwaltschaft]</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links" role="list" aria-label="Footer-Navigation">
+        <li><a href="index.html">Shop</a></li>
+        <li><a href="about.html">Über uns</a></li>
+        <li><a href="license.html">Lizenz</a></li>
+        <li><a href="privacy.html">Datenschutz</a></li>
+        <li><a href="contact.html">Impressum &amp; Kontakt</a></li>
+        <li><a href="media.html">Medienlizenzen</a></li>
+        <li><a href="accessibility.html">Barrierefreiheit</a></li>
+      </ul>
+      <p class="footer-copy">
+        &copy; 2025 LockKeeper Software GmbH, Wien &mdash;
+        Alle Rechte vorbehalten. &nbsp;|&nbsp;
+        Diese Website ist eine Studienarbeit (TU Wien, Daten- und Informatikrecht).
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

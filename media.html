@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Urheberrecht und Medienlizenzen – Übersicht aller auf dieser Website verwendeten Medien und deren Lizenzinformationen.">
+  <title>Urheberrecht &amp; Medienlizenzen – LockKeeper</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .legal-toc {
+      position: sticky;
+      top: calc(var(--nav-height) + 1.5rem);
+    }
+
+    .legal-toc h2 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-toc ol {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      counter-reset: toc;
+    }
+
+    .legal-toc ol li { counter-increment: toc; }
+
+    .legal-toc a {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      padding: 0.3rem 0.5rem;
+      border-radius: var(--radius-sm);
+      line-height: 1.4;
+    }
+
+    .legal-toc a::before {
+      content: counter(toc) ".";
+      font-size: 0.8rem;
+      color: var(--color-border);
+      flex-shrink: 0;
+    }
+
+    .legal-toc a:hover,
+    .legal-toc a:focus {
+      background: var(--color-border);
+      color: var(--color-text);
+    }
+
+    .legal-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .legal-section h2 {
+      font-size: 1.15rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 1rem;
+    }
+
+    .legal-section p,
+    .legal-section li {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .placeholder {
+      background: #f0f4f8;
+      border: 1px dashed var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    /* Media table */
+    .media-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 0.75rem;
+    }
+
+    .media-table th {
+      background: var(--color-bg);
+      font-weight: 600;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-muted);
+      padding: 0.6rem 0.9rem;
+      text-align: left;
+      border-bottom: 2px solid var(--color-border);
+    }
+
+    .media-table td {
+      padding: 0.75rem 0.9rem;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .media-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .media-table td:first-child {
+      font-weight: 600;
+      color: var(--color-text);
+      white-space: nowrap;
+    }
+
+    .license-tag {
+      display: inline-block;
+      background: rgba(30,58,95,0.08);
+      color: var(--color-primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    .license-tag--own {
+      background: rgba(46,204,113,0.12);
+      color: var(--color-accent-dark);
+    }
+
+    @media (max-width: 768px) {
+      .legal-layout {
+        grid-template-columns: 1fr;
+      }
+      .legal-toc {
+        position: static;
+      }
+      .media-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
+  <nav class="site-nav" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="LockKeeper – Startseite">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="7" stroke="#2ECC71" stroke-width="2.5"/>
+          <circle cx="11" cy="11" r="3.5" fill="#2ECC71"/>
+          <rect x="16.5" y="10" width="9" height="2.5" rx="1.25" fill="#2ECC71"/>
+          <rect x="22" y="12.5" width="2.5" height="3" rx="1" fill="#2ECC71"/>
+          <rect x="18.5" y="12.5" width="2.5" height="2" rx="1" fill="#2ECC71"/>
+        </svg>
+        LockKeeper
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Menü öffnen">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Shop</a></li>
+        <li><a href="about.html">Über uns</a></li>
+        <li><a href="license.html">Lizenz</a></li>
+        <li><a href="privacy.html">Datenschutz</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+        <li><a href="accessibility.html">Barrierefreiheit</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <section class="section section--alt" aria-labelledby="page-heading">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb" role="list">
+            <li><a href="index.html">Startseite</a></li>
+            <li>Urheberrecht &amp; Medienlizenzen</li>
+          </ol>
+        </nav>
+        <h1 id="page-heading">Urheberrecht &amp; Medienlizenzen</h1>
+        <p class="text-muted mt-1">
+          Übersicht aller auf dieser Website verwendeten Medien, Urheber und Lizenzbedingungen.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="legal-layout">
+
+          <!-- Table of Contents -->
+          <aside aria-label="Inhaltsverzeichnis">
+            <nav class="legal-toc">
+              <h2>Inhalt</h2>
+              <ol role="list">
+                <li><a href="#grundsatz">Grundsatz</a></li>
+                <li><a href="#schriftarten">Schriftarten</a></li>
+                <li><a href="#grafiken">Grafiken &amp; Icons</a></li>
+                <li><a href="#texte">Texte</a></li>
+                <li><a href="#bilder">Bilder</a></li>
+                <li><a href="#video">Video &amp; Animation</a></li>
+                <li><a href="#audio">Audio &amp; Sounds</a></li>
+              </ol>
+            </nav>
+          </aside>
+
+          <!-- Content -->
+          <div class="legal-content">
+
+            <div class="legal-section" id="grundsatz">
+              <h2>1. Grundsatz</h2>
+              <p>Falls nicht anders angegeben, wurden alle auf dieser Website verwendeten Medien entweder selbst erstellt oder werden unter einer kompatiblen Lizenz verwendet.</p>
+            </div>
+
+            <div class="legal-section" id="schriftarten">
+              <h2>2. Schriftarten</h2>
+              <p>Alle Schriftarten werden lokal gehostet. Es findet keine Verbindung zu externen Servern statt.</p>
+
+              <div style="overflow-x:auto; margin-top:1rem;">
+                <table class="media-table" aria-label="Verwendete Schriftarten">
+                  <thead>
+                    <tr>
+                      <th scope="col">Schriftart</th>
+                      <th scope="col">Urheber</th>
+                      <th scope="col">Lizenz</th>
+                      <th scope="col">Verwendung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Inter (400, 500, 600, 700)</td>
+                      <td>Rasmus Andersson</td>
+                      <td><a href="https://openfontlicense.org/" target="_blank" rel="noopener noreferrer"><span class="license-tag">SIL OFL 1.1</span></a></td>
+                      <td>Fließtext, Navigation, Überschriften auf allen Seiten</td>
+                    </tr>
+                    <tr>
+                      <td>JetBrains Mono (400)</td>
+                      <td>JetBrains s.r.o.</td>
+                      <td><a href="https://openfontlicense.org/" target="_blank" rel="noopener noreferrer"><span class="license-tag">SIL OFL 1.1</span></a></td>
+                      <td>Code-Darstellung (z. B. Hex-Farbwerte auf der Über-uns-Seite)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p style="font-size:0.85rem; color:var(--color-text-muted); margin-top:0.75rem;">
+                Die SIL Open Font License 1.1 erlaubt die freie Nutzung, Einbettung und Weitergabe der Schriftarten,
+                auch in kommerziellen Projekten, solange die Schriftarten nicht allein verkauft werden.
+              </p>
+            </div>
+
+            <div class="legal-section" id="grafiken">
+              <h2>3. Grafiken &amp; Icons</h2>
+              <p>Alle Grafiken und Icons sind als inline-SVG direkt im HTML-Code enthalten und wurden eigenständig erstellt.</p>
+
+              <div style="overflow-x:auto; margin-top:1rem;">
+                <table class="media-table" aria-label="Verwendete Grafiken und Icons">
+                  <thead>
+                    <tr>
+                      <th scope="col">Grafik</th>
+                      <th scope="col">Beschreibung</th>
+                      <th scope="col">Lizenz</th>
+                      <th scope="col">Verwendung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Schlüssel-Logo</td>
+                      <td>Stilisierter Schlüssel (Bildmarke), eigenständige Schöpfung</td>
+                      <td><span class="license-tag license-tag--own">Eigenes Werk</span></td>
+                      <td>Navigation (alle Seiten), Über-uns-Seite</td>
+                    </tr>
+                    <tr>
+                      <td>Feature-Icons</td>
+                      <td>6 thematische Icons (Schloss, Schild, Pfeil, Dokument, Monitor, Uhr), eigenständige Schöpfung</td>
+                      <td><span class="license-tag license-tag--own">Eigenes Werk</span></td>
+                      <td>Features-Abschnitt auf der Startseite</td>
+                    </tr>
+                    <tr>
+                      <td>Wortmarke (SVG-Text)</td>
+                      <td>„LockKeeper" als SVG-Textelement, kein Drittinhalt</td>
+                      <td><span class="license-tag license-tag--own">Eigenes Werk</span></td>
+                      <td>Marken-Abschnitt, Über-uns-Seite</td>
+                    </tr>
+                    <tr>
+                      <td>UI-Icons</td>
+                      <td>Allgemeine Interface-Icons (Burger-Menü, Pfeil, Haken, Personen-Silhouette), eigenständige Schöpfung</td>
+                      <td><span class="license-tag license-tag--own">Eigenes Werk</span></td>
+                      <td>Navigation, Team-Karten, Barrierefreiheits-Seite</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="legal-section" id="texte">
+              <h2>4. Texte</h2>
+              <p>Alle Seitentexte wurden selbst verfasst und sind urheberrechtlich geschützt. <br>
+                Urheber: LockKeeper Software GmbH, 2025</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links" role="list" aria-label="Footer-Navigation">
+        <li><a href="index.html">Shop</a></li>
+        <li><a href="about.html">Über uns</a></li>
+        <li><a href="license.html">Lizenz</a></li>
+        <li><a href="privacy.html">Datenschutz</a></li>
+        <li><a href="contact.html">Impressum &amp; Kontakt</a></li>
+        <li><a href="accessibility.html">Barrierefreiheit</a></li>
+        <li><a href="media.html">Medienlizenzen</a></li>
+      </ul>
+      <p class="footer-copy">
+        &copy; 2025 LockKeeper Software GmbH, Wien &mdash;
+        Alle Rechte vorbehalten. &nbsp;|&nbsp;
+        Diese Website ist eine Studienarbeit (TU Wien, Daten- und Informatikrecht).
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

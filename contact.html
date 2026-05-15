@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kontakt und Impressum der LockKeeper Software GmbH gemäß § 24 Mediengesetz und § 5 ECG.">
+  <title>Kontakt &amp; Impressum – LockKeeper</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Contact form layout */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+
+    .contact-info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-info-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .contact-info-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(30,58,95,0.08);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .contact-info-item span {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      display: block;
+    }
+
+    .contact-info-item strong {
+      font-size: 0.95rem;
+    }
+
+    /* Impressum / legal layout */
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .legal-toc {
+      position: sticky;
+      top: calc(var(--nav-height) + 1.5rem);
+    }
+
+    .legal-toc h2 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-toc ol {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      counter-reset: toc;
+    }
+
+    .legal-toc ol li { counter-increment: toc; }
+
+    .legal-toc a {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      padding: 0.3rem 0.5rem;
+      border-radius: var(--radius-sm);
+      line-height: 1.4;
+    }
+
+    .legal-toc a::before {
+      content: counter(toc) ".";
+      font-size: 0.8rem;
+      color: var(--color-border);
+      flex-shrink: 0;
+    }
+
+    .legal-toc a:hover,
+    .legal-toc a:focus {
+      background: var(--color-border);
+      color: var(--color-text);
+    }
+
+    .legal-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .legal-section h2 {
+      font-size: 1.15rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 1rem;
+    }
+
+    .legal-section p,
+    .legal-section li {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .legal-section ul,
+    .legal-section ol {
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+    }
+
+    .legal-section dl {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 0.4rem 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .legal-section dt {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--color-text);
+    }
+
+    .legal-section dd {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+
+    .placeholder {
+      background: #f0f4f8;
+      border: 1px dashed var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .success-message {
+      display: none;
+      background: rgba(46,204,113,0.1);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      color: var(--color-accent-dark);
+      font-weight: 500;
+    }
+
+    .success-message.is-visible {
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .legal-layout {
+        grid-template-columns: 1fr;
+      }
+      .legal-toc {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
+  <nav class="site-nav" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="LockKeeper – Startseite">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="7" stroke="#2ECC71" stroke-width="2.5"/>
+          <circle cx="11" cy="11" r="3.5" fill="#2ECC71"/>
+          <rect x="16.5" y="10" width="9" height="2.5" rx="1.25" fill="#2ECC71"/>
+          <rect x="22" y="12.5" width="2.5" height="3" rx="1" fill="#2ECC71"/>
+          <rect x="18.5" y="12.5" width="2.5" height="2" rx="1" fill="#2ECC71"/>
+        </svg>
+        LockKeeper
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Menü öffnen">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Shop</a></li>
+        <li><a href="about.html">Über uns</a></li>
+        <li><a href="license.html">Lizenz</a></li>
+        <li><a href="privacy.html">Datenschutz</a></li>
+        <li><a href="contact.html" aria-current="page">Kontakt</a></li>
+        <li><a href="accessibility.html">Barrierefreiheit</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- Page header -->
+    <section class="section section--alt" aria-labelledby="page-heading">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb" role="list">
+            <li><a href="index.html">Startseite</a></li>
+            <li>Kontakt &amp; Impressum</li>
+          </ol>
+        </nav>
+        <h1 id="page-heading">Kontakt &amp; Impressum</h1>
+        <p class="text-muted mt-1">LockKeeper Software GmbH &nbsp;·&nbsp; Wien, Österreich</p>
+      </div>
+    </section>
+
+    <!-- Contact form + info -->
+    <section class="section" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading" class="mb-2">Schreib uns</h2>
+
+        <div class="contact-layout">
+
+          <!-- Form (mocked) -->
+          <div>
+            <div class="success-message" id="form-success" role="alert" aria-live="polite">
+              Vielen Dank für deine Nachricht! Wir melden uns innerhalb von 48 Stunden.
+            </div>
+
+            <form id="contact-form" novalidate aria-label="Kontaktformular">
+              <p class="text-muted mb-3" style="font-size:0.9rem;">
+                <em>Hinweis: Dieses Formular ist zu Demonstrationszwecken gemockt – Daten werden nicht übertragen.</em>
+              </p>
+
+              <div class="form-group">
+                <label for="contact-name">Name <span aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  autocomplete="name"
+                  required
+                  aria-required="true"
+                  aria-describedby="contact-name-hint"
+                  placeholder="Name"
+                >
+                <span id="contact-name-hint" class="sr-only">Pflichtfeld</span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">E-Mail-Adresse <span aria-hidden="true">*</span></label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                  aria-required="true"
+                  placeholder="deine@email.at"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject">Betreff</label>
+                <select id="contact-subject" name="subject">
+                  <option value="">– Bitte wählen –</option>
+                  <option value="support">Technischer Support</option>
+                  <option value="sales">Kauf &amp; Lizenz</option>
+                  <option value="privacy">Datenschutz &amp; DSGVO</option>
+                  <option value="press">Presse &amp; Medien</option>
+                  <option value="other">Sonstiges</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Nachricht <span aria-hidden="true">*</span></label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  required
+                  aria-required="true"
+                  placeholder="Wie können wir dir helfen?"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label style="display:flex; align-items:flex-start; gap:0.5rem; font-weight:400; cursor:pointer;">
+                  <input type="checkbox" id="contact-privacy" name="privacy" required aria-required="true" style="width:auto; margin-top:0.2rem;">
+                  <span style="font-size:0.9rem; color:var(--color-text-muted);">
+                    Ich habe die <a href="privacy.html">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden.
+                  </span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Nachricht senden</button>
+            </form>
+          </div>
+
+          <!-- Contact info sidebar -->
+          <div class="contact-card" aria-label="Kontaktinformationen">
+            <h3>Direktkontakt</h3>
+            <ul class="contact-info-list" role="list">
+
+              <li class="contact-info-item">
+                <div class="contact-info-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <span>E-Mail (Allgemein)</span>
+                  <strong><a href="mailto:hello@lockkeeper.app">hello@lockkeeper.app</a></strong>
+                </div>
+              </li>
+
+              <li class="contact-info-item">
+                <div class="contact-info-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <span>E-Mail (Support)</span>
+                  <strong><a href="mailto:support@lockkeeper.app">support@lockkeeper.app</a></strong>
+                </div>
+              </li>
+
+              <li class="contact-info-item">
+                <div class="contact-info-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <span>Adresse</span>
+                  <strong>Karlsplatz 13, 1040 Wien</strong>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Impressum -->
+    <section class="section section--alt" id="impressum" aria-labelledby="impressum-heading">
+      <div class="container">
+        <div class="legal-layout">
+
+          <!-- TOC -->
+          <aside aria-label="Impressum – Inhaltsverzeichnis">
+            <nav class="legal-toc">
+              <h2>Impressum</h2>
+              <ol role="list">
+                <li><a href="#unternehmensangaben">Unternehmensangaben</a></li>
+                <li><a href="#unternehmensgegenstand">Unternehmensgegenstand</a></li>
+                <li><a href="#aufsicht">Aufsichtsbehörde</a></li>
+                <li><a href="#haftungsausschluss">Haftungsausschluss</a></li>
+                <li><a href="#urheberrecht-hinweis">Urheberrecht</a></li>
+              </ol>
+            </nav>
+          </aside>
+
+          <!-- Impressum content -->
+          <div class="legal-content">
+
+            <div class="legal-section" id="unternehmensangaben">
+              <h2>Unternehmensangaben</h2>
+              <dl>
+                <dt>Unternehmen</dt>
+                <dd>LockKeeper Software GmbH</dd>
+                <dt>Rechtsform</dt>
+                <dd>Gesellschaft mit beschränkter Haftung (GmbH)</dd>
+                <dt>Unternehmensgegenstand</dt>
+                <dd>Entwicklung, Vertrieb und Lizenzierung von Sicherheitssoftware</dd>
+                <dt>UID-Nummer</dt>
+                <dd>ATU 123456789</dd>
+                <dt>Firmenbuchnummer</dt>
+                <dd>FN 123456789 x</dd>
+                <dt>Firmenbuchgericht</dt>
+                <dd>Handelsgericht Wien</dd>
+                <dt>Sitz</dt>
+                <dd>Karlsplatz 13, 1040 Wien</dd>
+                <dt>E-Mail</dt>
+                <dd><a href="mailto:hello@lockkeeper.app">hello@lockkeeper.app</a></dd>
+                <dt>Telefonnummer</dt>
+                <dd>+43 1 123 4567</dd>
+                <dt>Mitgliedschaft</dt>
+                <dd>Mitglied der Wirtschaftskammer Österreich, Wirtschaftkammer Wien</dd>
+                <dt>Anwendbare Rechtsvorschriften</dt>
+                <dd><a href="https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10007517">Gewerbeordnung</a> <a href="https://www.ris.bka.gv.at/"> https://www.ris.bka.gv.at/</a></dd>
+                <dt>Aufsichtsbehörde</dt>
+                <dd>Magistrat Wien (MA 63) für Wiener Unternehmen</dd>
+                <dt>Medieninhaber</dt>
+                <dd>LockKeeper Software GmbH</dd>
+              </dl>
+            </div>
+
+            <div class="legal-section" id="haftungsausschluss">
+              <h2>2. Haftungsausschluss</h2>
+              <p>Trotz sorgfältiger Prüfung keine Haftung für Aktualität, Richtigkeit, Vollständigkeit; externe Links – keine Haftung für Inhalte verlinkter Seiten]</p>
+            </div>
+
+            <div class="legal-section" id="urheberrecht-hinweis">
+              <h2>5. Urheberrecht</h2>
+              <p class="placeholder">[Text: Alle Inhalte dieser Website (Texte, Grafiken, SVGs) sind urheberrechtlich geschützt; Vervielfältigung nur mit ausdrücklicher Genehmigung; Verweis auf verwendete Drittmedien und deren Lizenzen]</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links" role="list" aria-label="Footer-Navigation">
+        <li><a href="index.html">Shop</a></li>
+        <li><a href="about.html">Über uns</a></li>
+        <li><a href="license.html">Lizenz</a></li>
+        <li><a href="privacy.html">Datenschutz</a></li>
+        <li><a href="contact.html">Impressum &amp; Kontakt</a></li>
+        <li><a href="media.html">Medienlizenzen</a></li>
+        <li><a href="accessibility.html">Barrierefreiheit</a></li>
+      </ul>
+      <p class="footer-copy">
+        &copy; 2025 LockKeeper Software GmbH, Wien &mdash;
+        Alle Rechte vorbehalten. &nbsp;|&nbsp;
+        Diese Website ist eine Studienarbeit (TU Wien, Daten- und Informatikrecht).
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Mock contact form submission
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+
+    if (form && success) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        form.style.display = 'none';
+        success.classList.add('is-visible');
+        success.focus();
+      });
+    }
+  </script>
+</body>
+</html>
